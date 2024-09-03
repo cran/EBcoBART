@@ -1,3 +1,9 @@
+# EBcoBART 1.0.2
+
+## New features
+
+* Re-submission which fixes errors some operating systems experience
+
 # EBcoBART 1.0.1
 
 ## New features

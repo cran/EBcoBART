@@ -108,12 +108,14 @@ placed Same as in dbarts. Defaults to 0.75. If EB_sigma is TRUE,
 this parameter will be fixed, only sigdf and sigest will be updated.}
 }
 \value{
-A list object with the estimated variable weights,
-i.e the probabilities #' that variables are selected in the splitting rules.
+An object with the estimated variable weights,
+i.e the probabilities that variables are selected in the splitting rules.
 Additionally, the final co-data model is returned. If EB is set to TRUE,
 estimates of k and/or alpha and/or (sigdf, sigest) are also returned.
+The returned object is of class S3 for which print() and summary() are
+available
 The prior parameter estimates can then be used in your favorite BART R
-package that supports #' manually setting the splitting variable
+package that supports manually setting the splitting variable
 probability vector (dbarts and BARTMachine).
 }
 \description{

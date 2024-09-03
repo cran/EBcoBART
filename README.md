@@ -41,13 +41,13 @@ be used in a BART sampler (e.g. dbarts).
     set.seed(4) # for reproducible results
     Fit <- EBcoBART(Y=Y,X=X,CoData = CoDat, nIter = 15, model = "continuous",
                     EB_k = FALSE, EB_alpha = FALSE, EB_sigma = FALSE, #EB estimation
-                    verbose = FALSE, Seed = TRUE,
+                    verbose = FALSE,
                     nchain = 5, nskip = 1000, ndpost = 1000,
                     Prob_Init = rep(1/ncol(X),ncol(X)), # initial prior covariate weights
                     k = 2, alpha = .95, beta = 2)
                     
-    EstProbs <- Fit$SplittingProbs # estimated prior weights of variables (group-specific)
-    EstProbs[1,101,201,301,401] # check weights for each group
+    EstProbs <- Fit$SplitProbs # estimated prior weights of variables (group-specific)
+    EstProbs[c(1,101,201,301,401)] # check weights for each group
     print(Fit)
     summary(Fit)
 
