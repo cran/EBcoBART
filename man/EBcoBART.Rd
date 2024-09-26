@@ -112,8 +112,12 @@ An object with the estimated variable weights,
 i.e the probabilities that variables are selected in the splitting rules.
 Additionally, the final co-data model is returned. If EB is set to TRUE,
 estimates of k and/or alpha and/or (sigdf, sigest) are also returned.
-The returned object is of class S3 for which print() and summary() are
-available
+The returned object is of class S3 for which print(), summary(), and plot()
+are available. Function print() prints convergence details of the algorithm,
+summary() prints prior parameter estimates of EBcoBART, and plot() plots the
+estimated prior variable weights (including vertical line for equal variable
+weights).
+
 The prior parameter estimates can then be used in your favorite BART R
 package that supports manually setting the splitting variable
 probability vector (dbarts and BARTMachine).
@@ -134,12 +138,12 @@ information on the explanatory variables.
 # tree structure prior parameter alpha
 # and leaf node prior parameter k
 
-data(dat)
-Xtr <- as.matrix(dat$Xtrain) # Xtr should be matrix object
-Ytr <- dat$Ytrain
-Xte <- as.matrix(dat$Xtest) # Xte should be matrix object
-Yte <- dat$Ytest
-CoDat <- dat$CoData
+data("Lymphoma")
+Xtr <- as.matrix(Lymphoma$Xtrain) # Xtr should be matrix object
+Ytr <- Lymphoma$Ytrain
+Xte <- as.matrix(Lymphoma$Xtest) # Xte should be matrix object
+Yte <- Lymphoma$Ytest
+CoDat <- Lymphoma$CoData
 CoDat <- stats::model.matrix(~., CoDat) # encode grouping by dummies
 #(include intercept)
 
