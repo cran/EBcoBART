@@ -3,9 +3,9 @@
 #'
 #' The R package dbarts uses dummy encoding for factor variables so
 #' the co-data matrix should contain co-data information for each dummy.
-#' If co-data #' is only available for the factor as a whole
-#' (e.g. factor belongs to a group), #' use this function to set-up the co-data
-#' in the right-format #' for the EBcoBART function.
+#' If co-data is only available for the factor as a whole
+#' (e.g. factor belongs to a group), use this function to set-up the co-data
+#' in the right-format for the EBcoBART function.
 #'
 #' @param X Explanatory variables. Should be a data.frame. The function is only
 #' useful when X contains factor variables.
@@ -22,23 +22,23 @@
 #'
 #' @examples p <- 15
 #' n <- 30
-#' X <- matrix(runif(n*p),nrow = n, ncol = p) #all continuous variables
-#' Fact <- factor(sample(1:3,n,replace = TRUE)) # factor variables
-#' X <- cbind.data.frame(X,Fact)
+#' X <- matrix(runif(n * p),nrow = n, ncol = p) #all continuous variables
+#' Fact <- factor(sample(1:3, n, replace = TRUE)) # factor variables
+#' X <- cbind.data.frame(X, Fact)
 
 #' G <- 4   #number of groups for co-data
-#' CoDat <- rep(1:G, rep(ncol(X)/G,G)) # first 4 covariates in group 1,
+#' Co <- rep(1:G, rep(ncol(X)/G,G)) # first 4 covariates in group 1,
 #' #2nd 4 covariates in group 2, etc..
-#' CoDat <- data.frame(factor(CoDat))
-#' CoDat <- stats::model.matrix(~0+., CoDat) # encode the grouping structure
+#' Example <- data.frame(factor(Co))
+#' Example <- stats::model.matrix(~ 0 + ., Example) # encode the grouping structure
 #' # with dummies
-#' Dat <- Dat_EBcoBART(X = X, CoData = CoDat) #
+#' Dat <- Dat_EBcoBART(X = X, CoData = Example)
 #' X <- Dat$X
 #' CoData <- Dat$CoData
 #'
 #'@author Jeroen M. Goedhart, \email{j.m.goedhart@@amsterdamumc.nl}
 #'
-Dat_EBcoBART <- function(X,CoData){
+Dat_EBcoBART <- function(X, CoData){
 
   ## control statements ##
   if (ncol(X) == 0 || nrow(X) == 0){stop("X not specified.")}
@@ -58,7 +58,7 @@ Dat_EBcoBART <- function(X,CoData){
       remove(reps)
     }
   }
-  CoDat <- CoData[rep(seq_len(nrow(CoDat)), times = replication_times), ]
+  CoDat <- CoData[rep(seq_len(nrow(CoData)), times = replication_times), ]
   X <- stats::model.matrix(~ . + 0, X)
   res <- list(X = X, CoData = CoDat)
   return(res)
@@ -98,7 +98,7 @@ Dat_EBcoBART <- function(X,CoData){
 #' of the probability mass is placed. Thus, the specified sigquant is kept fixed
 #' and sigdf and sigest are updated. Defaults to False.
 #' @param Prob_Init Initial vector of splitting probabilities for
-#' explanatory variables X. #' Length should equal number of columns of X
+#' explanatory variables X. Length should equal number of columns of X
 #' (and number of rows in CoData).
 #' Defaults to 1/p, i.e. equal weight for each variable.
 #' @param verbose Logical. Asks whether algorithm progress
@@ -150,7 +150,7 @@ Dat_EBcoBART <- function(X,CoData){
 #' ###################################
 #' # For continuous response example, see README.
 #' # Use data set provided in R package
-#' # We set EB=T indicating that we also estimate
+#' # We set EB = T indicating that we also estimate
 #' # tree structure prior parameter alpha
 #' # and leaf node prior parameter k
 #'
@@ -586,7 +586,7 @@ summary.EBcoBART  <- function(object, ...) {
   }
 
   if (object$Convergence){
-    cat("Convergence okay. Minumum WAIC reached at iteration ",object$iteration, "\n")
+    cat("Convergence okay. Minimum WAIC reached at iteration ",object$iteration, "\n")
     cat("\nEB_coBART estimates:\n")
     if (!is.null(object$SplitProbs)) {
       cat("Prior covariate weights S\n")

@@ -1,3 +1,8 @@
+# EBcoBART 1.1.1
+
+## New features
+* bug fix in Dat_EBcoBART function
+
 # EBcoBART 1.1.0
 
 ## New features

@@ -29,8 +29,8 @@ data(Lymphoma)
 }
 \description{
 Contains training data and test data to predict 2 year progression free
-survival (yes/no) #' based on four types of variables: copy number variation,
-point mutations, translocations, #' and clinical. For the variables,
+survival (yes/no) based on four types of variables: copy number variation,
+point mutations, translocations, and clinical. For the variables,
 auxiliary information (co-data) is available which may be used to give more
 weight to certain variables in the prediction model. This data set is used
 in the manuscript "Co-data Learning for Bayesian Additive Regression Trees"

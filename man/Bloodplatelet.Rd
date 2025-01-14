@@ -11,7 +11,7 @@ A list object with five objects:
 Explanatory variables used for fitting BART.
 Variable names are present.}
 \item{Y}{Numeric of length 100. Binary training response
-(0: Breast cancer, 1: non-small-cell lung cancer)}#'
+(0: Breast cancer, 1: non-small-cell lung cancer)}
 \item{CoData}{Matrix with 500 rows and 4 columns. Auxiliary information
 on the 500 variables. Contains, for each variable, estimated p-values
 from three different classification tasks. P-values are -logit transformed.

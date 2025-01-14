@@ -64,7 +64,7 @@ of the probability mass is placed. Thus, the specified sigquant is kept fixed
 and sigdf and sigest are updated. Defaults to False.}
 
 \item{Prob_Init}{Initial vector of splitting probabilities for
-explanatory variables X. #' Length should equal number of columns of X
+explanatory variables X. Length should equal number of columns of X
 (and number of rows in CoData).
 Defaults to 1/p, i.e. equal weight for each variable.}
 
@@ -134,7 +134,7 @@ information on the explanatory variables.
 ###################################
 # For continuous response example, see README.
 # Use data set provided in R package
-# We set EB=T indicating that we also estimate
+# We set EB = T indicating that we also estimate
 # tree structure prior parameter alpha
 # and leaf node prior parameter k
 
