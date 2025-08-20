@@ -96,7 +96,7 @@ Defaults to 2. If EB_k is TRUE, this parameter will be the starting value.}
 
 \item{sigest}{Only for continuous response. Estimate of error variance
 used to set scaled inverse Chi^2 prior on error variance. Same as in dbarts.
-Defaults to 0.667*var(Y). #' If EB_sigma is TRUE, this parameter will be the
+Defaults to 0.667*var(Y). If EB_sigma is TRUE, this parameter will be the
 starting value.}
 
 \item{sigdf}{Only for continuous response. Degrees of freedom for error

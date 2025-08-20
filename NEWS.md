@@ -1,3 +1,9 @@
+# EBcoBART 1.1.2
+
+## New features
+* update of citation info
+
+
 # EBcoBART 1.1.1
 
 ## New features

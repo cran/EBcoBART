@@ -30,7 +30,7 @@ for three different classification tasks: 1) colorectal cancer vs. control
 patients, 2) pancreas cancer vs. control patients, and 3) pancreas cancer vs.
 colorectal cancer. Co-data is therefore informative if different cancer
 classification tasks have similar important m-RNA variables.
-See Novianti and others (2017) \url{doi:10.1093/bioinformatics/btw837} for details
+See Novianti and others (2017) \doi{doi:10.1093/bioinformatics/btw837} for details
 on the complete data set, from which this data is derived.
 }
 \references{
